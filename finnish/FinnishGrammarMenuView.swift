@@ -38,7 +38,7 @@ let sampleVerbs: [Verb] = [
     Verb(infinitive: "juoda", ending: "da", explanation: "-da: \t\t juoda → juo-", stem: "juo"),
     Verb(infinitive: "tulla", ending: "CCa", explanation: "-Ca +e: \t tulla → tule-", stem: "tule"),
     Verb(infinitive: "haluta", ending: "Type 4", explanation: "-t: \t\t haluta → halua-", stem: "halua"),
-    Verb(infinitive: "tarvita", ending: "Type 5", explanation: "-a +se: \t tarvita → tarvit- → tarvitse-", stem: "tarvitse")
+    Verb(infinitive: "tarvita", ending: "Type 5", explanation: "-a +se: \t tarvita → tarvitse-", stem: "tarvitse")
 ]
 // MARK: - Learn View
 struct LearnView: View {
