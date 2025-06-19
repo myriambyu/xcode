@@ -55,35 +55,95 @@ func loadFlashcards(fromCSV fileName: String) -> [Flashcard] {
 }
 
 // MARK: - Main View
+import SwiftUI
+
+// MARK: - ContentView (Main Menu)
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            VStack(spacing: 24) {
                 Text("Learn Finnish!")
                     .font(.largeTitle.bold())
-                
-                Spacer().frame(height: 8)
-                
-                NavigationLink(destination: LearnView(verbs: sampleVerbs)) {
-                    Text("Learn Verb Rules")
+                    .multilineTextAlignment(.center)
+
+                // Finnish Grammar Menu
+                NavigationLink(destination: FinnishGrammarMenuView()) {
+                    Text("Finnish Grammar")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
                 }
                 .buttonStyle(.borderedProminent)
-                
-                NavigationLink(destination: CSVFlashcardView()) {
-                    Text("Practice Flashcards")
+
+                // Grammar Practice Menu (empty for now)
+                NavigationLink(destination: GrammarPracticeView()) {
+                    Text("Grammar Practice")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding()
                 }
                 .buttonStyle(.borderedProminent)
+
+                // Vocab Flashcards Menu
+                NavigationLink(destination: VocabFlashcardsMenuView()) {
+                    Text("Vocab Flashcards")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                }
+                .buttonStyle(.borderedProminent)
+
+                Spacer()
             }
             .padding()
         }
     }
 }
+
+struct FinnishGrammarMenuView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            NavigationLink(destination: LearnView(verbs: sampleVerbs)) {
+                Text("Verb stems")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+            }
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Finnish Grammar")
+    }
+}
+struct GrammarPracticeView: View {
+    var body: some View {
+        Text("Coming soon!")
+            .font(.title)
+            .foregroundColor(.secondary)
+            .navigationTitle("Grammar Practice")
+            .padding()
+    }
+}
+struct VocabFlashcardsMenuView: View {
+    var body: some View {
+        VStack(spacing: 20) {
+            NavigationLink(destination: CSVFlashcardView()) {
+                Text("Verbs 1")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+            }
+            .buttonStyle(.borderedProminent)
+
+            Spacer()
+        }
+        .padding()
+        .navigationTitle("Vocab Flashcards")
+    }
+}
+
 
 // MARK: - Learn View
 struct LearnView: View {
